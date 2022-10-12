@@ -8,7 +8,7 @@
     </div>
 
     <div class="section-header">
-      <h6>Selamat Datang di Coffe Shop Kober Dapam<br/><br/>
+      <h6>Selamat Datang di Aplikasi Point of Sales<br/><br/>
       </h6>
 
     </div>
