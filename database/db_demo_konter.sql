@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 21, 2021 at 11:12 AM
+-- Generation Time: Oct 12, 2022 at 06:37 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.2.33
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_kober`
+-- Database: `db_demo_konter`
 --
 
 -- --------------------------------------------------------
@@ -44,9 +44,8 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `nama_bolu`, `stok`, `harga_beli`, `harga_jual`, `diskon`, `ppn`, `keterangan`) VALUES
-(190, 'V60', 4, 10000, 15000, 0, 0, '-'),
-(191, 'Rujak Cireng', 4, 7000, 10000, 0, 0, '-'),
-(192, 'Pink Regal', 3, 10000, 15000, 0, 0, '-');
+(193, 'Charger', 9, 15000, 20000, 0, 0, '-'),
+(194, 'Kabel Data Type-C', 4, 20000, 25000, 0, 0, '-');
 
 -- --------------------------------------------------------
 
@@ -84,9 +83,8 @@ CREATE TABLE `barang_masuk` (
 --
 
 INSERT INTO `barang_masuk` (`id_barang_masuk`, `tanggal`, `id_barang`, `jumlah`, `keterangan`) VALUES
-(19, '2021-09-15', 192, 5, '-'),
-(20, '2021-09-15', 191, 5, '-'),
-(21, '2021-09-15', 190, 5, '-');
+(22, '2022-10-13', 193, 10, 'test'),
+(23, '2022-10-13', 194, 5, '-');
 
 -- --------------------------------------------------------
 
@@ -108,11 +106,10 @@ CREATE TABLE `cash` (
 --
 
 INSERT INTO `cash` (`id_cash`, `tanggal`, `keterangan`, `pemasukan`, `pengeluaran`, `catatan`) VALUES
-(28, '2021-09-15', 'Beli Pink Regal sebanyak 5', NULL, 50000, '-'),
-(29, '2021-09-15', 'Beli Rujak Cireng sebanyak 5', NULL, 35000, '-'),
-(30, '2021-09-15', 'Beli V60 sebanyak 5', NULL, 50000, '-'),
-(31, '2021-09-15', 'Modal', 1000000, NULL, '-\r\n'),
-(32, '2021-09-15', 'Penjualan || T-210915-1', 55000, NULL, '-');
+(33, '2022-10-13', 'Beli Charger sebanyak 10', NULL, 150000, '-'),
+(34, '2022-10-13', 'Beli Kabel Data Type-C sebanyak 5', NULL, 100000, '-'),
+(35, '2022-10-13', 'Modal Awal', 5000000, NULL, '-'),
+(36, '2022-10-13', 'Penjualan || T-221013-1', 45000, NULL, '-');
 
 -- --------------------------------------------------------
 
@@ -132,7 +129,7 @@ CREATE TABLE `penjualan` (
 --
 
 INSERT INTO `penjualan` (`id_penjualan`, `tanggal`, `harga_total`, `keterangan`) VALUES
-('T-210915-1', '2021-09-15', 55000, 'Rama');
+('T-221013-1', '2022-10-13', 45000, 'Rama');
 
 -- --------------------------------------------------------
 
@@ -156,9 +153,8 @@ CREATE TABLE `penjualan_detail` (
 --
 
 INSERT INTO `penjualan_detail` (`id_penjualan_detail`, `id_penjualan`, `id_barang`, `jumlah`, `harga_beli`, `harga_jual`, `diskon`, `harga_subtotal`) VALUES
-(29, 'T-210915-1', 192, 2, 10000, 15000, 0, 30000),
-(30, 'T-210915-1', 190, 1, 10000, 15000, 0, 15000),
-(31, 'T-210915-1', 191, 1, 7000, 10000, 0, 10000);
+(32, 'T-221013-1', 194, 1, 20000, 25000, 0, 25000),
+(33, 'T-221013-1', 193, 1, 15000, 20000, 0, 20000);
 
 -- --------------------------------------------------------
 
@@ -181,7 +177,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `email`, `no_hp`, `role`) VALUES
-(1, 'admin', '$2y$10$5VifqomOAsoe39zJDc/GJefzvAwOmvdqMbDeNjocX0piQd5KDOKbS', 'administrator', 'admin@admin.com', '089123123123', 1);
+(1, 'admin', '$2y$10$5VifqomOAsoe39zJDc/GJefzvAwOmvdqMbDeNjocX0piQd5KDOKbS', 'administrator', 'admin@admin.com', '089123123123', 1),
+(2, 'pegawai', '$2y$10$x2dZc/HNrBo.3bQiwi5bU.cUmZeasueW55YYH3vuTMGHcyMwEPoGK', 'TEST', 'test@email.com', '089', 0);
 
 --
 -- Indexes for dumped tables
@@ -238,7 +235,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=193;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
 
 --
 -- AUTO_INCREMENT for table `barang_backup`
@@ -250,25 +247,25 @@ ALTER TABLE `barang_backup`
 -- AUTO_INCREMENT for table `barang_masuk`
 --
 ALTER TABLE `barang_masuk`
-  MODIFY `id_barang_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_barang_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `cash`
 --
 ALTER TABLE `cash`
-  MODIFY `id_cash` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_cash` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `penjualan_detail`
 --
 ALTER TABLE `penjualan_detail`
-  MODIFY `id_penjualan_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_penjualan_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

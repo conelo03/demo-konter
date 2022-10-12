@@ -27,10 +27,10 @@ $get_user = $this->db->get_where('user', ['id_user' => $id_user])->row_array();
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="#">Kober Dapam</a>
+            <a href="#">Company Name</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="#">KoDap</a>
+            <a href="#">C Name</a>
           </div>
           <?php
             $judul = explode(' ', $title);
