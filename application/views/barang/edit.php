@@ -21,19 +21,34 @@
               </div>
               <div class="card-body">
                 <div class="form-group">
-                  <label>Merk HP</label>
-                  <input type="text" name="merk_hp" class="form-control" value="<?= set_value('merk_hp', $b['merk_hp']); ?>" required="">
-                  <?= form_error('merk_hp', '<span class="text-danger small">', '</span>'); ?>
+                  <label>Nama Item</label>
+                  <input type="text" name="nama_bolu" class="form-control" value="<?= set_value('nama_bolu', $b['nama_bolu']); ?>" required="">
+                  <?= form_error('nama_bolu', '<span class="text-danger small">', '</span>'); ?>
                 </div>
                 <div class="form-group">
-                  <label>Tipe HP</label>
-                  <input type="text" name="tipe_hp" class="form-control" value="<?= set_value('tipe_hp', $b['tipe_hp']); ?>" required="">
-                  <?= form_error('tipe_hp', '<span class="text-danger small">', '</span>'); ?>
+                  <label>Stok</label>
+                  <input type="number" name="stok" class="form-control" value="<?= set_value('stok', $b['stok'] != 0 ? $b['stok'] : 0); ?>" required="">
+                  <?= form_error('stok', '<span class="text-danger small">', '</span>'); ?>
                 </div>
                 <div class="form-group">
                   <label>Harga Beli</label>
                   <input type="number" name="harga_beli" class="form-control" value="<?= set_value('harga_beli', $b['harga_beli']); ?>" required="">
                   <?= form_error('harga_beli', '<span class="text-danger small">', '</span>'); ?>
+                </div>
+                <div class="form-group">
+                  <label>Harga Jual</label>
+                  <input type="number" name="harga_jual" class="form-control" value="<?= set_value('harga_jual', $b['harga_jual']); ?>" required="">
+                  <?= form_error('harga_jual', '<span class="text-danger small">', '</span>'); ?>
+                </div>
+                <div class="form-group">
+                  <label>Diskon (%)</label>
+                  <input type="number" name="diskon" class="form-control" value="<?= set_value('diskon', $b['diskon'] != 0 ? $b['diskon'] : 0); ?>" required="">
+                  <?= form_error('diskon', '<span class="text-danger small">', '</span>'); ?>
+                </div>
+                <div class="form-group">
+                  <label>PPn (%)</label>
+                  <input type="number" name="ppn" class="form-control" value="<?= set_value('ppn', $b['ppn'] != 0 ? $b['diskon'] : 0); ?>" required="">
+                  <?= form_error('ppn', '<span class="text-danger small">', '</span>'); ?>
                 </div>
                 <div class="form-group">
                   <label>Keterangan</label>

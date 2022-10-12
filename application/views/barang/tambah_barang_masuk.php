@@ -20,30 +20,34 @@
                 <h4>Form Tambah Barang Masuk</h4>
               </div>
               <div class="card-body">
-                <div class="form-group">
-                  <label>Tanggal Masuk</label>
-                  <input type="date" name="tanggal" class="form-control" value="<?= set_value('tanggal'); ?>" required="">
-                  <?= form_error('tanggal', '<span class="text-danger small">', '</span>'); ?>
-                </div>
-                <div class="form-group">
-                  <label>Merk HP</label>
-                  <input type="text" name="merk_hp" class="form-control" value="<?= set_value('merk_hp'); ?>" required="">
-                  <?= form_error('merk_hp', '<span class="text-danger small">', '</span>'); ?>
-                </div>
-                <div class="form-group">
-                  <label>Tipe HP</label>
-                  <input type="text" name="tipe_hp" class="form-control" value="<?= set_value('tipe_hp'); ?>" required="">
-                  <?= form_error('tipe_hp', '<span class="text-danger small">', '</span>'); ?>
-                </div>
-                <div class="form-group">
-                  <label>Harga Beli</label>
-                  <input type="number" name="harga_beli" class="form-control" value="<?= set_value('harga_beli'); ?>" required="">
-                  <?= form_error('harga_beli', '<span class="text-danger small">', '</span>'); ?>
-                </div>
-                <div class="form-group">
-                  <label>Keterangan</label>
-                  <textarea type="text" name="keterangan" class="form-control" required=""><?= set_value('keterangan'); ?></textarea>
-                  <?= form_error('keterangan', '<span class="text-danger small">', '</span>'); ?>
+                <div class="row">
+                  <div class="col-lg-6 form-group">
+                    <label>Tanggal Masuk</label>
+                    <input type="date" name="tanggal" class="form-control" value="<?= set_value('tanggal', date('Y-m-d')); ?>" required="">
+                    <?= form_error('tanggal', '<span class="text-danger small">', '</span>'); ?>
+                  </div>
+                  <div class="col-lg-6 form-group">
+                    <label>Pilih Barang</label>
+                    <select class="form-control" name="id_barang" id="select-pegawai" data-live-search="true">
+                      <option disabled selected>-- Pilih Barang --</option>
+                      <?php foreach ($barang as $b):?>
+                      <option value="<?= $b['id_barang']?>" <?= set_value('id_barang') == $b['id_barang'] ? 'selected' : '' ; ?> ><?= $b['nama_bolu'].' || Stok : '.$b['stok'] ?></option>
+                      <?php endforeach;?>
+                    </select>
+                    <?= form_error('id_barang', '<span class="text-danger small">', '</span>'); ?>
+                  </div>
+                </div>                
+                <div class="row">
+                  <div class="col-lg-6 form-group">
+                    <label>Jumlah</label>
+                    <input type="number" name="jumlah" class="form-control" value="<?= set_value('jumlah'); ?>" required="">
+                    <?= form_error('jumlah', '<span class="text-danger small">', '</span>'); ?>
+                  </div>
+                  <div class="col-lg-6 form-group">
+                    <label>Keterangan</label>
+                    <textarea type="text" name="keterangan" class="form-control" required=""><?= set_value('keterangan'); ?></textarea>
+                    <?= form_error('keterangan', '<span class="text-danger small">', '</span>'); ?>
+                  </div>
                 </div>
               </div>
 

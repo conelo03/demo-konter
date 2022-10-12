@@ -21,34 +21,15 @@
               </div>
             </div>
             <div class="card-body">
-              <form action="<?= base_url('barang-masuk'); ?>" method="post">
-                <div class="row">
-                  <div class="col-md-6 form-group">
-                    <label>Pilih Bulan</label>
-                    <select name="month" class="form-control" required>
-                      <option selected disabled>-- Pilih Bulan --</option>
-                      <?php 
-                        foreach ($month as $key) { ?>
-                          <option value="<?= $key['tgl1'] ?>" <?= $month_c == $key['tgl1'] ? 'selected' : '' ?>><?= $key['tgl'] ?></option>
-                      <?php  }
-                      ?>
-                    </select>
-                  </div>
-                  <div class="col-md-6 form-group">
-                    <label>&nbsp;</label><br>
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-filter"></i> Filter</button>
-                  </div>
-                </div>
-              </form>
               <div class="table-responsive">
                 <table class="table table-striped" id="datatables-jabatan">
                   <thead>
                     <tr>
                       <th class="text-center">#</th>
                       <th>Tanggal Masuk</th>
-                      <th>Merk HP</th>
-                      <th>Tipe HP</th>
-                      <th>Harga Beli</th>
+                      <th>Nama Barang</th>
+                      <th>Jumlah</th>
+                      <th>Biaya</th>
                       <th>Keterangan</th>
                       <th class="text-center" style="width: 160px;">Aksi</th>
                     </tr>
@@ -60,9 +41,9 @@
                     <tr>
                       <td class="text-center"><?= $no++;?></td>
                       <td><?= date('d F Y', strtotime($u['tanggal']));?></td>
-                      <td><?= $u['merk_hp'];?></td>
-                      <td><?= $u['tipe_hp'];?></td>
-                      <td><?= 'Rp '.number_format($u['harga_beli'], 2, ',', '.');?></td>
+                      <td><?= $u['nama_bolu'];?></td>
+                      <td><?= $u['jumlah'];?></td>
+                      <td><?= 'Rp '.number_format($u['jumlah']*$u['harga_beli'], 2, ',', '.');?></td>
                       <td><?= $u['keterangan'];?></td>
                       <td class="text-center">
                         <a href="<?= base_url('edit-barang-masuk/'.$u['id_barang_masuk']);?>" class="btn btn-info"><i class="fa fa-edit"></i> Edit</a>

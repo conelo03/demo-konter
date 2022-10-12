@@ -8,7 +8,7 @@
     </div>
 
     <div class="section-header">
-      <h6>Selamat Datang di Aplikasi Point of Sale Counter Name<br/><br/>
+      <h6>Selamat Datang di Coffe Shop Kober Dapam<br/><br/>
       </h6>
 
     </div>
@@ -16,7 +16,7 @@
   <?php if(is_admin()):?>
   <section class="section">
       <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="col-lg-4 col-md-4 col-sm-12">
           <div class="card card-statistic-2">
             <div class="card-stats">
               <div class="card-stats-title">
@@ -36,7 +36,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="col-lg-4 col-md-4 col-sm-12">
           <div class="card card-statistic-2">
             <div class="card-stats">
               <div class="card-stats-title">
@@ -56,7 +56,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="col-lg-4 col-md-4 col-sm-12">
           <div class="card card-statistic-2">
             <div class="card-stats">
               <div class="card-stats-title">
@@ -72,26 +72,6 @@
               </div>
               <div class="card-body">
                 <h6><?= 'Rp '.number_format($cash, 2, ',', '.');?></h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-12">
-          <div class="card card-statistic-2">
-            <div class="card-stats">
-              <div class="card-stats-title">
-              	<h5>Total Saldo</h5>
-          		</div>
-            </div>
-            <div class="card-icon shadow-primary bg-primary">
-              <i class="fas fa-dollar-sign"></i>
-            </div>
-            <div class="card-wrap">
-              <div class="card-header">
-                <h4>Balance</h4>
-              </div>
-              <div class="card-body">
-                <h6><?= 'Rp '.number_format($total, 2, ',', '.');?></h6>
               </div>
             </div>
           </div>

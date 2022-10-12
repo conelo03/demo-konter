@@ -27,10 +27,10 @@ $get_user = $this->db->get_where('user', ['id_user' => $id_user])->row_array();
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="#">Dijey Cell</a>
+            <a href="#">Kober Dapam</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="#">DJC</a>
+            <a href="#">KoDap</a>
           </div>
           <?php
             $judul = explode(' ', $title);
@@ -46,32 +46,15 @@ $get_user = $this->db->get_where('user', ['id_user' => $id_user])->row_array();
             <li class="<?= $title == 'Data Barang' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('barang');?>"><i class="fas fa-circle"></i> <span>Data Barang</span></a></li> 
 
             <li class="menu-header">Transaksi</li>
-            <li class="nav-item dropdown <?= $title == 'Data Barang Masuk' || $title == 'Barang Masuk All' ? 'active' : ''; ?>">
-              <a href="#" class="nav-link has-dropdown"><i class="fas fa-circle"></i> <span>Barang Masuk</span></a>
-              <ul class="dropdown-menu">
-                <li class="<?= $title == 'Data Barang Masuk' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('barang-masuk');?>">Data Barang Masuk</a></li>
-                <li class="<?= $title == 'Barang Masuk All' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('barang-masuk-all');?>">Barang Masuk All</a></li>
-              </ul>
-            </li> 
-            <li class="nav-item dropdown <?= $title == 'Data Barang Keluar' || $title == 'Barang Keluar All' ? 'active' : ''; ?>">
-              <a href="#" class="nav-link has-dropdown"><i class="fas fa-circle"></i> <span>Barang Keluar</span></a>
-              <ul class="dropdown-menu">
-                <li class="<?= $title == 'Data Barang Keluar' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('barang-keluar');?>">Data Barang Keluar</a></li>
-                <li class="<?= $title == 'Barang Keluar All' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('barang-keluar-all');?>">Barang Keluar All</a></li>
-              </ul>
-            </li> 
-            <li class="nav-item dropdown <?= $title == 'Data Cash' || $title == 'Cash All' ? 'active' : ''; ?>">
-              <a href="#" class="nav-link has-dropdown"><i class="fas fa-circle"></i> <span>Cash</span></a>
-              <ul class="dropdown-menu">
-                <li class="<?= $title == 'Data Cash' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('cash');?>">Data Cash</a></li>
-                <li class="<?= $title == 'Cash All' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('cash-all');?>">Cash All</a></li>
-              </ul>
-            </li> 
+
+            <li class="<?= $title == 'Data Barang Masuk' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('barang-masuk');?>"><i class="fas fa-circle"></i> <span>Barang Masuk</span></a></li>
+            <li class="<?= $title == 'Data Penjualan' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('barang-keluar');?>"><i class="fas fa-circle"></i> <span>Penjualan</span></a></li>
+            <li class="<?= $title == 'Data Cash' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('cash');?>"><i class="fas fa-circle"></i> <span>Cash On Hand</span></a></li>  
 
             <li class="menu-header">Laporan</li>
             <?php if(is_admin()):?> 
             <li class="<?= $title == 'Laporan Barang Masuk' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('laporan-barang-masuk');?>"><i class="fas fa-circle"></i> <span>Laporan Barang Masuk</span></a></li>
-            <li class="<?= $title == 'Laporan Barang Keluar' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('laporan-barang-keluar');?>"><i class="fas fa-circle"></i> <span>Laporan Barang Keluar</span></a></li> 
+            <li class="<?= $title == 'Laporan Penjualan' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('laporan-barang-keluar');?>"><i class="fas fa-circle"></i> <span>Laporan Penjualan</span></a></li> 
             <li class="<?= $title == 'Laporan Transaksi' ? 'active' : ''; ?>"><a class="nav-link" href="<?= base_url('laporan-transaksi');?>"><i class="fas fa-circle"></i> <span>Laporan Transaksi</span></a></li> 
             <?php endif;?>
           </ul>

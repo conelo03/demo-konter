@@ -18,18 +18,18 @@ class Dashboard extends CI_Controller {
 	{
 		$data['title']	= 'Dashboard';
 		$bulan = date('Y-m');
-		$transaksi = $this->M_barang->get_barang_keluar_group_date($bulan)->result_array();
-		$keuntungan = 0;
-		foreach ($transaksi as $t) {
-			$keuntungan += $t['harga_jual']-$t['harga_beli'];
-		}
+		// $transaksi = $this->M_barang->get_barang_keluar_group_date($bulan)->result_array();
+		// $keuntungan = 0;
+		// foreach ($transaksi as $t) {
+		// 	$keuntungan += $t['harga_jual']-$t['harga_beli'];
+		// }
 
-		$data['keuntungan'] = $keuntungan;
+		//$data['keuntungan'] = $keuntungan;
 
 		$data['barang']		= $this->M_barang->get_barang()->result_array();
 		$assets = 0;
 		foreach ($data['barang'] as $a){
-		    $assets += $a['harga_beli'];
+		    $assets += $a['stok']*$a['harga_beli'];
 		}
 		$data['total_assets'] = $assets;
 
@@ -41,9 +41,15 @@ class Dashboard extends CI_Controller {
 			$pemasukan += $c['pemasukan'];
 			$pengeluaran += $c['pengeluaran'];
 		}
-		$data['cash'] = $pemasukan - $pengeluaran;
+		$transaksi	= $this->M_barang->get_barang_keluar_group()->result_array();
+		$keuntungan = 0;
+		foreach ($transaksi as $u) {
+			$keuntungan += $u['jumlah']*$u['harga_jual']-$u['jumlah']*$u['harga_beli'];
+		}
 
-		$data['total'] = $keuntungan + $assets + $data['cash'];
+		$data['cash'] = $pemasukan - $pengeluaran;
+		$data['keuntungan'] = $keuntungan;
+		$data['total'] = $assets + $data['cash'];
 		$this->load->view('dashboard', $data);
 	}
 }

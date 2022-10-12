@@ -16,37 +16,19 @@ class Cash extends CI_Controller {
 
 	public function index()
 	{
-		$post_m = $this->input->post('month');
-		if(empty($post_m)){
-			$month = date('Y-m');
-		} else {
-			$month = $post_m;
-		}
-		$data['month_c'] = $month;
-		$data['month']		= $this->db->query("SELECT DATE_FORMAT(tanggal, '%Y-%m') as tgl1, DATE_FORMAT(tanggal, '%M %Y') as tgl FROM cash GROUP BY MONTH(tanggal), YEAR(tanggal) order by tanggal ASC")->result_array();
-
-    $data['title']		= 'Data Cash';
-		$data['cash']		= $this->M_cash->get_data($month)->result_array();
-		$pemasukan = $this->db->select_sum('pemasukan')->get('cash')->row_array();
-		$pengeluaran = $this->db->select_sum('pengeluaran')->get('cash')->row_array();
-
-		$data['saldo'] = $pemasukan['pemasukan'] - $pengeluaran['pengeluaran'];
-		$data['pemasukan'] = $pemasukan['pemasukan'];
-		$data['pengeluaran'] = $pengeluaran['pengeluaran'];
-		$this->load->view('cash/data', $data);
-	}
-
-	public function all()
-	{
-    $data['title']		= 'Data Cash';
+        $data['title']		= 'Data Cash';
 		$data['cash']		= $this->M_cash->get_data()->result_array();
-		$pemasukan = $this->db->select_sum('pemasukan')->get('cash')->row_array();
-		$pengeluaran = $this->db->select_sum('pengeluaran')->get('cash')->row_array();
-
-		$data['saldo'] = $pemasukan['pemasukan'] - $pengeluaran['pengeluaran'];
-		$data['pemasukan'] = $pemasukan['pemasukan'];
-		$data['pengeluaran'] = $pengeluaran['pengeluaran'];
-		$this->load->view('cash/data_all', $data);
+		$pemasukan = 0;
+		$pengeluaran = 0;
+		$saldo = 0;
+		foreach ($data['cash'] as $c) {
+			$pemasukan += $c['pemasukan'];
+			$pengeluaran += $c['pengeluaran'];
+		}
+		$data['saldo'] = $pemasukan - $pengeluaran;
+		$data['pemasukan'] = $pemasukan;
+		$data['pengeluaran'] = $pengeluaran;
+		$this->load->view('cash/data', $data);
 	}
 
 	public function tambah()

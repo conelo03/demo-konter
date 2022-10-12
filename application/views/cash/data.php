@@ -23,34 +23,16 @@
             
             <div class="card-body">
               <div class="row">
-                <div class="col-4"><h6>Total Pemasukan</h6></div>
-                <div class="col-8">: <?= 'Rp '.number_format($pemasukan, 2, ',', '.'); ?></div>
-                <div class="col-4"><h6>Total Pengeluaran</h6></div>
-                <div class="col-8">: <?= 'Rp '.number_format($pengeluaran, 2, ',', '.'); ?></div>
-                <div class="col-4"><h6>Saldo Terakhir</h6></div>
-                <div class="col-8">: <?= 'Rp '.number_format($saldo, 2, ',', '.'); ?></div>
+                  <div class="col-4"><h6>Total Pemasukan</h6></div>
+                  <div class="col-8">: <?= 'Rp '.number_format($pemasukan, 2, ',', '.'); ?></div>
+                  <div class="col-4"><h6>Total Pengeluaran</h6></div>
+                  <div class="col-8">: <?= 'Rp '.number_format($pengeluaran, 2, ',', '.'); ?></div>
+                  <div class="col-4"><h6>Saldo Terakhir</h6></div>
+                  <div class="col-8">: <?= 'Rp '.number_format($saldo, 2, ',', '.'); ?></div>
               </div>
-              <form action="<?= base_url('cash'); ?>" method="post">
-                <div class="row">
-                  <div class="col-md-6 form-group">
-                    <label>Pilih Bulan</label>
-                    <select name="month" class="form-control" required>
-                      <option selected disabled>-- Pilih Bulan --</option>
-                      <?php 
-                        foreach ($month as $key) { ?>
-                          <option value="<?= $key['tgl1'] ?>" <?= $month_c == $key['tgl1'] ? 'selected' : '' ?>><?= $key['tgl'] ?></option>
-                      <?php  }
-                      ?>
-                    </select>
-                  </div>
-                  <div class="col-md-6 form-group">
-                    <label>&nbsp;</label><br>
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-filter"></i> Filter</button>
-                  </div>
-                </div>
-              </form>
+                
               <div class="table-responsive">
-                <table class="table table-striped" id="datatables-pegawai">
+                <table class="table table-striped" id="datatables-jabatan">
                   <thead>
                     <tr>
                       <th class="text-center">#</th>

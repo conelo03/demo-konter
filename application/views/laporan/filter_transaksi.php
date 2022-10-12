@@ -26,8 +26,8 @@
                     <tr>
                       <th class="text-center">#</th>
                       <th>Tanggal Keluar</th>
-                      <th>Merk HP</th>
-                      <th>Tipe HP</th>
+                      <th>Nama Item</th>
+                      <th>Jumlah</th>
                       <th>Harga Beli</th>
                       <th>Harga Jual</th>
                       <th>Keuntungan</th>
@@ -38,16 +38,16 @@
                     $no = 1; 
                     $keuntungan=0;
                     foreach($barang as $u):
-                      $keuntungan += $u['harga_jual']-$u['harga_beli'];
+                      $keuntungan += $u['jumlah']*$u['harga_jual']-$u['jumlah']*$u['harga_beli'];
                     ?>
                     <tr>
                       <td class="text-center"><?= $no++;?></td>
                       <td><?= date('d F Y', strtotime($u['tanggal']));?></td>
-                      <td><?= $u['merk_hp'];?></td>
-                      <td><?= $u['tipe_hp'];?></td>
-                      <td><?= 'Rp '.number_format($u['harga_beli'], 2, ',', '.');?></td>
-                      <td><?= 'Rp '.number_format($u['harga_jual'], 2, ',', '.');?></td>
-                      <td><?= 'Rp '.number_format($u['harga_jual']-$u['harga_beli'], 2, ',', '.');?></td>
+                      <td><?= $u['nama_bolu'];?></td>
+                      <td><?= $u['jumlah'];?></td>
+                      <td><?= 'Rp '.number_format($u['jumlah']*$u['harga_beli'], 2, ',', '.');?></td>
+                      <td><?= 'Rp '.number_format($u['jumlah']*$u['harga_jual'], 2, ',', '.');?></td>
+                      <td><?= 'Rp '.number_format($u['jumlah']*$u['harga_jual']-$u['jumlah']*$u['harga_beli'], 2, ',', '.');?></td>
                     </tr>
                     <?php endforeach;?>
                     <tr>

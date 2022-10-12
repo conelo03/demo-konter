@@ -5,14 +5,10 @@ class M_cash extends CI_Model {
 
 	public $table	= 'cash';
 
-	public function get_data($month = null)
+	public function get_data()
 	{
 		$this->db->select('*');
 		$this->db->from($this->table);
-		if($month != null){
-			$this->db->where("DATE_FORMAT(tanggal, '%Y-%m') =", $month);
-		}
-		
 		$this->db->order_by('id_cash', 'DESC');
         return $this->db->get();
 	}
@@ -25,15 +21,6 @@ class M_cash extends CI_Model {
 	public function get_by_id($id_cash)
 	{
 		return $this->db->get_where($this->table, ['id_cash' => $id_cash])->row_array();
-	}
-
-	public function get_bulan()
-	{
-		$this->db->select('*, DATE_FORMAT(`cash`.`tanggal`, "%M %Y") `myformat`');
-		$this->db->from('cash');
-		$this->db->order_by('id_cash', 'ASC');
-		$this->db->group_by("MONTH(`cash`.`tanggal`)");
-        return $this->db->get();
 	}
 
 	public function get_last()

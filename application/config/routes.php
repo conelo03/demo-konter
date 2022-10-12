@@ -66,27 +66,31 @@ $route['hapus-user/(:any)']     = 'User/hapus/$1';
 $route['setting']			    = 'User/setting';
 
 $route['barang'] 				= 'Barang';
+$route['tambah-barang'] 		= 'Barang/tambah';
 $route['edit-barang/(:any)'] 	= 'Barang/edit/$1';
 $route['hapus-barang/(:any)']   = 'Barang/hapus/$1';
 
 $route['cash'] 				= 'Cash';
-$route['cash-all'] 				= 'Cash/all';
 $route['tambah-cash'] 			= 'Cash/tambah';
 $route['edit-cash/(:any)'] 	= 'Cash/edit/$1';
 $route['hapus-cash/(:any)']   = 'Cash/hapus/$1';
 
 $route['barang-masuk'] 			= 'Barang/data_barang_masuk';
-$route['barang-masuk-all'] 			= 'Barang/data_barang_masuk_all';
 $route['tambah-barang-masuk'] 	= 'Barang/tambah_barang_masuk';
 $route['edit-barang-masuk/(:any)']	= 'Barang/edit_barang_masuk/$1';
 $route['hapus-barang-masuk/(:any)'] = 'Barang/hapus_barang_masuk/$1';
 
 $route['barang-keluar'] 			= 'Barang/data_barang_keluar';
-$route['barang-keluar-all'] 			= 'Barang/data_barang_keluar_all';
 $route['tambah-barang-keluar'] 		= 'Barang/tambah_barang_keluar';
 $route['edit-barang-keluar/(:any)']	= 'Barang/edit_barang_keluar/$1';
 $route['hapus-barang-keluar/(:any)']= 'Barang/hapus_barang_keluar/$1';
 $route['cancel-barang-keluar/(:any)']= 'Barang/cancel_barang_keluar/$1';
+
+$route['detail-barang-keluar/(:any)'] 			= 'Barang/detail_barang_keluar/$1';
+$route['tambah-detail-barang-keluar/(:any)'] = 'Barang/tambah_detail_barang_keluar/$1';
+$route['edit-detail-barang-keluar/(:any)/(:any)'] = 'Barang/edit_detail_barang_keluar/$1/$2';
+$route['hapus-detail-barang-keluar/(:any)/(:any)'] = 'Barang/hapus_detail_barang_keluar/$1/$2';
+$route['cetak-barang-keluar/(:any)'] 			= 'Barang/print/$1';
 
 $route['laporan-barang-masuk'] 		= 'Laporan/data_barang_masuk';
 $route['laporan-barang-keluar'] 	= 'Laporan/data_barang_keluar';

@@ -15,41 +15,20 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4>Data Barang Keluar</h4>
+              <h4>Laporan Penjualan</h4>
               <div class="card-header-action">
               </div>
             </div>
             <div class="card-body">
-              <form action="<?= base_url('laporan-barang-keluar'); ?>" method="post">
-                <div class="row">
-                  <div class="col-md-6 form-group">
-                    <label>Pilih Bulan</label>
-                    <select name="month" class="form-control" required>
-                      <option selected disabled>-- Pilih Bulan --</option>
-                      <?php 
-                        foreach ($month as $key) { ?>
-                          <option value="<?= $key['tgl1'] ?>" <?= $month_c == $key['tgl1'] ? 'selected' : '' ?>><?= $key['tgl'] ?></option>
-                      <?php  }
-                      ?>
-                    </select>
-                  </div>
-                  <div class="col-md-6 form-group">
-                    <label>&nbsp;</label><br>
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-filter"></i> Filter</button>
-                  </div>
-                </div>
-              </form>
               <div class="table-responsive">
                 <table class="table table-striped" id="datatables-jabatan">
                   <thead>
                     <tr>
                       <th class="text-center">#</th>
-                      <th>Tanggal Keluar</th>
-                      <th>Merk HP</th>
-                      <th>Tipe HP</th>
-                      <th>Harga Beli</th>
-                      <th>Harga Jual</th>
-                      <th>Keterangan</th>
+                      <th>ID Transaksi</th>
+                      <th>Tanggal</th>
+                      <th>Total Harga</th>
+                      <th>Atas Nama</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -58,11 +37,9 @@
                     foreach($barang as $u):?>
                     <tr>
                       <td class="text-center"><?= $no++;?></td>
+                      <td><?= $u['id_penjualan'];?></td>
                       <td><?= date('d F Y', strtotime($u['tanggal']));?></td>
-                      <td><?= $u['merk_hp'];?></td>
-                      <td><?= $u['tipe_hp'];?></td>
-                      <td><?= 'Rp '.number_format($u['harga_beli'], 2, ',', '.');?></td>
-                      <td><?= 'Rp '.number_format($u['harga_jual'], 2, ',', '.');?></td>
+                      <td><?= 'Rp '.number_format($u['harga_total'], 2, ',', '.');?></td>
                       <td><?= $u['keterangan'];?></td>
                     </tr>
                     <?php endforeach;?>

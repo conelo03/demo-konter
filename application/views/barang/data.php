@@ -16,28 +16,31 @@
           <div class="card">
             <div class="card-header">
               <h4>Data Barang</h4>
-              
               <div class="card-header-action">
+                <a href="<?= base_url('tambah-barang');?>" class="btn btn-info"><i class="fa fa-plus"></i> Tambah Data</a>
               </div>
               
             </div>
             
             <div class="card-body">
-                <div class="row">
-                    <div class="col-4"><h6>Total Assets</h6></div>
-                    <div class="col-8">: <?= 'Rp '.number_format($total_assets, 2, ',', '.'); ?></div>
-                    <div class="col-4"><h6>Total Stok</h6></div>
-                    <div class="col-8">: <?= $jml_barang ?> Unit</div>
-                </div>
+              <!-- <div class="row">
+                  <div class="col-4"><h6>Total Assets</h6></div>
+                  <div class="col-8">: <?= 'Rp '.number_format($total_assets, 2, ',', '.'); ?></div>
+                  <div class="col-4"><h6>Total Stok</h6></div>
+                  <div class="col-8">: <?= $jml_barang ?> Unit</div>
+              </div> -->
                 
               <div class="table-responsive">
                 <table class="table table-striped" id="datatables-jabatan">
                   <thead>
                     <tr>
                       <th class="text-center">#</th>
-                      <th>Merk HP</th>
-                      <th>Tipe HP</th>
+                      <th>Nama Item</th>
+                      <th>Stok</th>
                       <th>Harga Beli</th>
+                      <th>Harga Jual</th>
+                      <th>Diskon</th>
+                      <th>PPN</th>
                       <th>Keterangan</th>
                       <th class="text-center" style="width: 160px;">Aksi</th>
                     </tr>
@@ -48,9 +51,14 @@
                     foreach($barang as $u):?>
                     <tr>
                       <td class="text-center"><?= $no++;?></td>
-                      <td><?= $u['merk_hp'];?></td>
-                      <td><?= $u['tipe_hp'];?></td>
+                      <td><?= $u['nama_bolu'];?></td>
+                      <td><?= $u['stok'];?></td>
                       <td><?= 'Rp '.number_format($u['harga_beli'], 2, ',', '.');?></td>
+                      <td>
+                        <?= 'Rp '.number_format($u['harga_jual'], 2, ',', '.');?>
+                      </td>
+                      <td><?= $u['diskon'];?> %</td>
+                      <td><?= $u['ppn'];?> %</td>
                       <td><?= $u['keterangan'];?></td>
                       <td class="text-center">
                         <a href="<?= base_url('edit-barang/'.$u['id_barang']);?>" class="btn btn-info"><i class="fa fa-edit"></i> Edit</a>

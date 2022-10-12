@@ -1,6 +1,6 @@
       <footer class="main-footer">
         <div class="footer-left">
-          Copyright &copy; 2020 <div class="bullet"></div> Dibuat dan Dikembangkan oleh <a href="#">Counter Name</a>
+          Copyright &copy; 2020 <div class="bullet"></div> Dibuat dan Dikembangkan oleh <a href="#">Muhamad Ramadhan</a>
         </div>
         <div class="footer-right">
           Version 1.1

@@ -28,31 +28,15 @@ class Laporan extends CI_Controller {
 
 	public function data_barang_masuk()
 	{
-		$post_m = $this->input->post('month');
-		if(empty($post_m)){
-			$month = date('Y-m');
-		} else {
-			$month = $post_m;
-		}
-		$data['month_c'] = $month;
-		$data['month']		= $this->db->query("SELECT DATE_FORMAT(tanggal, '%Y-%m') as tgl1, DATE_FORMAT(tanggal, '%M %Y') as tgl FROM barang_masuk GROUP BY MONTH(tanggal), YEAR(tanggal) order by tanggal ASC")->result_array();
         $data['title']		= 'Laporan Barang Masuk';
-		$data['barang']		= $this->M_barang->get_barang_masuk($month)->result_array();
+		$data['barang']		= $this->M_barang->get_barang_masuk()->result_array();
 		$this->load->view('laporan/data_barang_masuk', $data);
 	}
 
 	public function data_barang_keluar()
 	{
-		$post_m = $this->input->post('month');
-		if(empty($post_m)){
-			$month = date('Y-m');
-		} else {
-			$month = $post_m;
-		}
-		$data['month_c'] = $month;
-		$data['month']		= $this->db->query("SELECT DATE_FORMAT(tanggal, '%Y-%m') as tgl1, DATE_FORMAT(tanggal, '%M %Y') as tgl FROM barang_keluar GROUP BY MONTH(tanggal), YEAR(tanggal) order by tanggal ASC")->result_array();
-        $data['title']		= 'Laporan Barang Keluar';
-		$data['barang']		= $this->M_barang->get_barang_keluar($month)->result_array();
+        $data['title']		= 'Laporan Penjualan';
+		$data['barang']		= $this->M_barang->get_barang_keluar()->result_array();
 		$this->load->view('laporan/data_barang_keluar', $data);
 	}
 
